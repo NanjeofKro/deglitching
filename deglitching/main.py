@@ -223,8 +223,8 @@ def deglitch(energy, mu, group, e_window='xas', sg_window_length=9, sg_polyorder
     import numpy as np
     from scipy.interpolate import interp1d
     from scipy.signal import savgol_filter
-    from larch_plugins.utils import group2dict
-    from larch_plugins.xafs import find_e0
+    from larch.utils import group2dict
+    from larch.xafs import find_e0
     from larch import Interpreter
     from copy import deepcopy
     session = Interpreter(with_plugins=False)
