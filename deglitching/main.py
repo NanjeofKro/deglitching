@@ -221,7 +221,7 @@ def deglitch(energy, mu, group, e_window='xas', sg_window_length=9, sg_polyorder
     None
     """
     import numpy as np
-    from scipy.interpolate import interp1d
+    from scipy.interpolate import CubicSpline
     from scipy.signal import savgol_filter
     from larch.utils import group2dict
     from larch.xafs import find_e0
@@ -273,7 +273,7 @@ def deglitch(energy, mu, group, e_window='xas', sg_window_length=9, sg_polyorder
     
     e2         = np.delete(ener, out1) #removes points that are poorly fitted by the S-G filter
     n2         = np.delete(mu_copy, out1)
-    f          = interp1d(e2, n2, kind='cubic') 
+    f          = CubicSpline(e2, n2, kind='cubic') 
     interp_pts = f(energy[out1]) #interpolates for normalized mu at the removed energies
     
     for i, point in enumerate(out1):
