@@ -227,7 +227,7 @@ def deglitch(energy, mu, group, e_window='xas', sg_window_length=9, sg_polyorder
     from larch.xafs import find_e0
     from larch import Interpreter
     from copy import deepcopy
-    session = Interpreter(with_plugins=False)
+    session = Interpreter()
     # computing the energy window to perform the deglitch:
     e_val     = 150  # energy limit to separate xanes from exafs [eV]
     e_windows = ['xas', 'xanes', 'exafs']
